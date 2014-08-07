@@ -1,94 +1,54 @@
 package com.testactivity;
 
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
-public class MainActivity extends Activity implements OnClickListener{
+public class MyActivity extends Activity{
 
-	Button gof;
-	Button goa;
-	Button goAppear;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		Log.i("MainActivity!!!!!!!!!!!", "onCreate called."); 
-		setContentView(R.layout.activity_main);
-		
-		gof=(Button) findViewById(R.id.goMyfragmentActivity);
-		goa=(Button) findViewById(R.id.goMyActivity);
-		goAppear=(Button) findViewById(R.id.goAppearActivity);
-		
-		gof.setOnClickListener(this);
-		goa.setOnClickListener(this);
-		goAppear.setOnClickListener(this);
-	}
-
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-	
-
-	@Override
-	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		int id=v.getId();
-		switch(id){
-		case R.id.goMyfragmentActivity:{
-			MyFragmentActivity.invoteToMyFragmentActivity(this);
-			finish();
-			break;
-			}
-		case R.id.goMyActivity:
-			MyActivity.invoteToMyActivity(this);break;
-		case R.id.goAppearActivity:
-			AppearActivity.invoteToAppearActivity(this);
-			finish();
-			break;
-		}
+		super.onCreate(savedInstanceState);
+		Log.i("!!!!!!!!MyActivity!!!!!!!!!!!", "onCreate called."); 
+		this.setContentView(R.layout.activity_myactivity);
 	}
 	
 	 //Activity创建或者从后台重新回到前台时被调用  
 	  protected void onStart() {  
 	        super.onStart();  
-	        Log.i("MainActivity!!!!!!!!!!!!!!", "onStart called.");  
+	        Log.i("!!!!!!!!MyActivity!!!!!!!!!!!!!!", "onStart called.");  
 	    }  
 	  
 	  //Activity从后台重新回到前台时被调用  
 	    @Override  
 	    protected void onRestart() {  
 	        super.onRestart();  
-	        Log.i("MainActivity!!!!!!!!!!", "onRestart called.");  
+	        Log.i("!!!!!!!!MyActivity!!!!!!!!!!", "onRestart called.");  
 	    }  
 	      
 	    //Activity创建或者从被覆盖、后台重新回到前台时被调用  
 	    @Override  
 	    protected void onResume() {  
 	        super.onResume();  
-	        Log.i("MainActivity!!!!!!!!!!", "onResume called.");  
+	        Log.i("!!!!!!!!MyActivity!!!!!!!!!!", "onResume called.");  
 	    }  
 	      
 	    //Activity窗口获得或失去焦点时被调用,在onResume之后或onPause之后  
 	    @Override 
 	    public void onWindowFocusChanged(boolean hasFocus) { 
 	        super.onWindowFocusChanged(hasFocus); 
-	        Log.i("MainActivity!!!!!!!!!!!", "onWindowFocusChanged called."); 
-	    }
+	        Log.i("!!!!!myActivity!!!!!!!!!!!!", "onWindowFocusChanged called."); 
+	    }  
 	      
 	    //Activity被覆盖到下面或者锁屏时被调用  
 	    @Override  
 	    protected void onPause() {  
 	        super.onPause();  
-	        Log.i("MainActivity!!!!!!!!!", "onPause called.");  
+	        Log.i("!!!!!!!!MyActivity!!!!!!!!!", "onPause called.");  
 	        //有可能在执行完onPause或onStop后,系统资源紧张将Activity杀死,所以有必要在此保存持久数据  
 	    }  
 	    
@@ -97,14 +57,14 @@ public class MainActivity extends Activity implements OnClickListener{
 	    @Override  
 	    protected void onStop() {  
 	        super.onStop();  
-	        Log.i("MainActivity!!!!!!!!!!!!!!!!", "onStop called.");     
+	        Log.i("!!!!!!!!MyActivity!!!!!!!!!!!!!!!!", "onStop called.");     
 	    }  
 	      
 	    //退出当前Activity时被调用,调用之后Activity就结束了  
 	    @Override  
 	    protected void onDestroy() {  
 	        super.onDestroy();  
-	        Log.i("MainActivity!!!!!!!!!!!!!!!", "onDestory called.");  
+	        Log.i("!!!!!!!!MyActivity!!!!!!!!!!!!!!!", "onDestory called.");  
 	    }  
 	    
 	    
@@ -116,7 +76,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	     */  
 	    protected void onSaveInstanceState(Bundle outState) {  
 	        outState.putInt("param", 1);  
-	        Log.i("MainActivity!!!!!!!!!!!!!!!!", "onSaveInstanceState called. put param: " + 1);  
+	        Log.i("!!!!!!!!MyActivity!!!!!!!!!!!!!!!!", "onSaveInstanceState called. put param: " + 1);  
 	        super.onSaveInstanceState(outState);  
 	    }  
 	      
@@ -128,14 +88,21 @@ public class MainActivity extends Activity implements OnClickListener{
 	    @Override  
 	    protected void onRestoreInstanceState(Bundle savedInstanceState) {  
 	      int   param = savedInstanceState.getInt("1");  
-	        Log.i("MainActivity!!!!!!!!!", "onRestoreInstanceState called. get param: " + 1);  
+	        Log.i("!!!!!!!!MyActivity!!!!!!!!!", "onRestoreInstanceState called. get param: " + 1);  
 	        super.onRestoreInstanceState(savedInstanceState);  
-	    }  
+	    }
 	
-	public static void invoteToMain(Activity context) {
-		Intent intent = new Intent();
-		intent.setClass(context, MainActivity.class);
-		context.startActivity(intent);
-		
-	}
+	    
+	    public static void invoteToMyActivity(Activity context) {
+			Intent intent = new Intent();
+			intent.setClass(context, MyActivity.class);
+			context.startActivity(intent);
+		}
+	    
+	    public void backC(View v){
+			Log.v( "Haha , this is a DEBUG of MyAndroid. ", "the backC pressed"); 
+			Intent intent = new Intent();
+			intent.setClass(this, MainActivity.class);
+			this.startActivity(intent);
+		}
 }

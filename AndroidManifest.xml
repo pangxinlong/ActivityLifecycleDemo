@@ -22,7 +22,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="NextActivty"></activity>
+        <activity 
+            android:name="MyActivity">
+            
+        </activity>
+        
+        <activity 
+            android:name="MyFragmentActivity">     
+        </activity>
+       
+        <activity 
+            android:name="AppearActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog">
+        </activity>
+        
     </application>
 
 </manifest>

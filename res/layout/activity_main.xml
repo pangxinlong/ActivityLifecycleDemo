@@ -20,12 +20,30 @@
         android:gravity="center"/>
 
     <Button
-        android:id="@+id/next"
+        android:id="@+id/goMyfragmentActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:gravity="center"
-        android:text="下一个" />
+        android:text="go MyfragmentActivity" />
 
+    <Button
+        android:id="@+id/goMyActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/goMyfragmentActivity"
+        android:layout_alignRight="@+id/goMyfragmentActivity"
+        android:layout_below="@+id/goMyfragmentActivity"
+        android:text="go MyActivity" />
+
+    <Button
+        android:id="@+id/goAppearActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/goMyActivity"
+        android:layout_alignRight="@+id/goMyActivity"
+        android:layout_below="@+id/goMyActivity"
+        android:text="go appearActivity" />
+    
 </RelativeLayout>
