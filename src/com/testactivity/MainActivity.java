@@ -45,14 +45,16 @@ public class MainActivity extends Activity implements OnClickListener{
 		switch(id){
 		case R.id.goMyfragmentActivity:{
 			MyFragmentActivity.invoteToMyFragmentActivity(this);
-			finish();
+		//	finish();
 			break;
 			}
 		case R.id.goMyActivity:
-			MyActivity.invoteToMyActivity(this);break;
+			MyActivity.invoteToMyActivity(this);
+		//	finish();
+			break;
 		case R.id.goAppearActivity:
 			AppearActivity.invoteToAppearActivity(this);
-			finish();
+		//	finish();
 			break;
 		}
 	}

@@ -18,15 +18,16 @@ import android.view.View.OnClickListener;
 public class MyFragmentActivity extends FragmentActivity {
 
 	private MyFragmentOne myfragment1;
-
+	MyFragmentTwo ftwo;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		Log.i("FragmentActivity!!!!!!!!!!!", "onCreate called.");
 		this.setContentView(R.layout.activity_myfragmentactivity);
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager
+		
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager()
 				.beginTransaction();
 		myfragment1 = new MyFragmentOne();
 		fragmentTransaction.add(R.id.linearcon, myfragment1).commit();
@@ -85,22 +86,6 @@ public class MyFragmentActivity extends FragmentActivity {
 		Intent intent = new Intent();
 		intent.setClass(context, MyFragmentActivity.class);
 		context.startActivity(intent);
-	}
-
-	/*
-	 * @Override public void onClick(View v) { // TODO Auto-generated method
-	 * stub int id=v.getId(); switch(id){ case R.id.back:{ Log.v(
-	 * "Haha , this is a DEBUG of MyAndroid. ", "the back pressed");
-	 * 
-	 * Intent intent = new Intent(); intent.setClass(this, MainActivity.class);
-	 * this.startActivity(intent); // MainActivity.invoteToMain(this); } } }
-	 */
-
-	public void backB(View v) {
-		Log.v("Haha , this is a DEBUG of MyAndroid. ", "the backB pressed");
-		Intent intent = new Intent();
-		intent.setClass(this, MainActivity.class);
-		this.startActivity(intent);
 	}
 
 }

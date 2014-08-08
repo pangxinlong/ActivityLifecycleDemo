@@ -25,6 +25,15 @@ public class MyFragmentTwo extends Fragment {
 
 	}
 
+	
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+		Log.i("!!!!!!!!!!!!!!!!MyFragment2","onActivityCreated is called");
+	}
+
 	@Override
 	public void onStart() {
 		// TODO Auto-generated method stub
